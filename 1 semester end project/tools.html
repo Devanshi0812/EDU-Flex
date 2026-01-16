@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduFlex - Student Tools</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">EduFlex <span
+                        class="badge bg-warning text-dark">Meta</span></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="tools.html">Tools</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">Register</a></li>
+                        <li class="nav-item ms-2">
+                            <button id="themeToggle" class="btn btn-sm btn-outline-light">
+                                <span>🌙</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4">Student Utilities</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header bg-primary text-white">Student Loan EMI Calculator</div>
+                    <div class="card-body">
+                        <label>Loan Amount (P):</label>
+                        <input type="number" id="principal" class="form-control mb-2" placeholder="Enter Amount">
+
+                        <label>Interest Rate (R%):</label>
+                        <input type="range" id="rate" min="5" max="20" step="0.5"
+                            oninput="updateRateDisplay(this.value)">
+                        <span id="rateVal">5%</span>
+
+                        <label class="d-block mt-2">Tenure (Years):</label>
+                        <input type="number" id="years" class="form-control mb-2" placeholder="Years">
+
+                        <button class="btn btn-success w-100" onclick="calculateEMI()">Calculate EMI</button>
+                        <h4 class="mt-3 text-center" id="emiResult">EMI: 0.00</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow">
+                    <div class="card-header bg-secondary text-white">Course Search</div>
+                    <div class="card-body">
+                        <input type="text" id="searchInput" class="form-control"
+                            placeholder="Search courses (e.g. React)..." onkeyup="filterCourses()">
+                        <ul id="courseList" class="list-group mt-2" style="max-height: 200px; overflow-y: auto;">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center p-3 mt-5">
+        &copy; 2026 EduFlex. Built with HTML, CSS, JS.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
